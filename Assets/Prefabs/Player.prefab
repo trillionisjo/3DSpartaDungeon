@@ -186,7 +186,9 @@ GameObject:
   - component: {fileID: 4669682520446262402}
   - component: {fileID: 8813170550205641380}
   - component: {fileID: 5279943714595310880}
+  - component: {fileID: 3768350479031007840}
   - component: {fileID: 4299396495058705817}
+  - component: {fileID: 1140703467062666409}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -261,6 +263,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &3768350479031007840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921346305688555329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5a1993569f3cf43878faaf511e075c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <maxHealth>k__BackingField: 100
+  <maxStamina>k__BackingField: 500
+  <moveSpeed>k__BackingField: 4
+  <jumpPower>k__BackingField: 4
 --- !u!114 &4299396495058705817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,8 +291,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42fdec92913fc834c96c7c6935f432c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <moveSpeed>k__BackingField: 5
+  <input>k__BackingField: {fileID: 11400000, guid: bc4e3215b074bed4faf9ab3d95d72822, type: 2}
   <lookSensitivity>k__BackingField: 0.3
   <maxLookUpAngle>k__BackingField: 90
   <maxLookDownAngle>k__BackingField: -90
-  <jumpForce>k__BackingField: 5
+--- !u!114 &1140703467062666409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921346305688555329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772156082171e444b8d77c8548713e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <footstepThreshold>k__BackingField: 1
+  <footstepVThreadshold>k__BackingField: 0.01
+  <footstepDelay>k__BackingField: 0.3
