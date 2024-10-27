@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     private BoxCollider groundCollider;
+    private PlayerControls m_controls;
+    private PlayerInteraction m_interaction;
+    private PlayerSounds m_sounds;
 
     [SerializeField] private int m_health;
     [SerializeField] private int m_maxHealth;
@@ -14,7 +17,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private float jumpCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
 
-    public event Action Jumped;
+
 
     #region Properties
 
@@ -44,6 +47,19 @@ public class Player : MonoBehaviour {
         get => m_jumpPower;
     }
 
+    public PlayerControls controls {
+        get => m_controls;
+    }
+
+    public PlayerInteraction interaction {
+        get => m_interaction;
+    }
+
+    public PlayerSounds sounds {
+        get => m_sounds;
+    }
+
+
     public bool isDead {
         get => health == 0;
     }
@@ -65,6 +81,9 @@ public class Player : MonoBehaviour {
     private void Awake() {
         Global.player = this;
         groundCollider = GetComponentInChildren<BoxCollider>();
+        m_controls = GetComponent<PlayerControls>();
+        m_interaction = GetComponent<PlayerInteraction>();
+        m_sounds = GetComponent<PlayerSounds>();
     }
 
     private void OnDestroy() {
