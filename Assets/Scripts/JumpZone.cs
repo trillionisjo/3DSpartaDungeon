@@ -1,13 +1,14 @@
 using UnityEngine;
 
 public class JumpZone : MonoBehaviour {
-    [field: SerializeField] public Vector3 direction { get; private set; }
-    [field: SerializeField] public float power { get; private set; }
+    [SerializeField] private Vector3 direction;
+    [SerializeField] private float power;
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
+            var player = other.gameObject.GetComponent<Player>();
             var controls = other.gameObject.GetComponent<PlayerControls>();
-            controls.AddForce(direction, power);
+            controls.AddForce(direction, power + player.jumpPower);
         }
     }
 }

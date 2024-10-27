@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 
 class EnumGenerator {
-    [MenuItem("Tools/Generate AudioFileNameEnum")]
+    [MenuItem("Tools/Generate AudioClipNameEnum")]
     public static void GeneratePrefabEnum() {
         string[] prefabPaths = AssetDatabase.FindAssets("t:AudioClip", new[] { "Assets/Resources/Audios" })
             .Select(AssetDatabase.GUIDToAssetPath)
             .ToArray();
 
         StringBuilder enumBuilder = new StringBuilder();
-        enumBuilder.AppendLine("public enum AudioFileName");
+        enumBuilder.AppendLine("public enum AudioClipName");
         enumBuilder.AppendLine("{");
 
         for (int i = 0; i < prefabPaths.Length; i++) {
@@ -21,7 +21,7 @@ class EnumGenerator {
 
         enumBuilder.AppendLine("}");
 
-        string enumFilePath = "Assets/Scripts/Audio/AudioFileNameEnum.cs";
+        string enumFilePath = "Assets/Scripts/Audio/AudioClipNameEnum.cs";
         File.WriteAllText(enumFilePath, enumBuilder.ToString());
         AssetDatabase.Refresh();
     }

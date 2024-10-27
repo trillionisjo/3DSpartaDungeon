@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 5600416843407206211}
   - component: {fileID: 3866558672992494114}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: CapsuleMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 1140703467062666409}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,6 +211,7 @@ Transform:
   m_Children:
   - {fileID: 4737399557667333687}
   - {fileID: 7613255699141762554}
+  - {fileID: 7297702745329377889}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &8813170550205641380
@@ -275,10 +276,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5a1993569f3cf43878faaf511e075c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 100
-  <maxStamina>k__BackingField: 500
-  <moveSpeed>k__BackingField: 4
-  <jumpPower>k__BackingField: 4
+  m_health: 0
+  m_maxHealth: 100
+  m_stamina: 0
+  m_maxStamina: 500
+  m_moveSpeed: 4
+  m_jumpPower: 4
+  jumpThreadhold: 0.3
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &4299396495058705817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,10 +298,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42fdec92913fc834c96c7c6935f432c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <input>k__BackingField: {fileID: 11400000, guid: bc4e3215b074bed4faf9ab3d95d72822, type: 2}
-  <lookSensitivity>k__BackingField: 0.3
-  <maxLookUpAngle>k__BackingField: 90
-  <maxLookDownAngle>k__BackingField: -90
+  m_input: {fileID: 11400000, guid: bc4e3215b074bed4faf9ab3d95d72822, type: 2}
+  lookSensitivity: 0.2
+  maxLookUpAngle: 85
+  maxLookDownAngle: -85
 --- !u!114 &1140703467062666409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +314,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772156082171e444b8d77c8548713e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <footstepThreshold>k__BackingField: 1
-  <footstepVThreadshold>k__BackingField: 0.01
-  <footstepDelay>k__BackingField: 0.3
+  footstepThreshold: 1
+  footstepVThreadshold: 0.1
+  footstepDelay: 0.4
+--- !u!1 &9153290947784398242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7297702745329377889}
+  - component: {fileID: 2606722659693097104}
+  m_Layer: 0
+  m_Name: GroundCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7297702745329377889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153290947784398242}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.385, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4669682520446262402}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2606722659693097104
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153290947784398242}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92739034, y: 0.064431116, z: 0.94859004}
+  m_Center: {x: -0.002094686, y: 0.02551546, z: 0.0037130117}

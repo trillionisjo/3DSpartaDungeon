@@ -1,18 +1,32 @@
+using System;
 using UnityEngine;
 
 public class PlayerControls : MonoBehaviour {
-    [field: SerializeField] public InputReaderSO input { get; private set; }
-    private Player player { get; set; }
-    private Rigidbody rb { get; set; }
-    private Camera mainCamera { get; set; }
-    private Vector2 moveInput { get; set; }
-    [field: SerializeField] private float lookSensitivity { get; set; }
-    [field: SerializeField] private float maxLookUpAngle { get; set; }
-    [field: SerializeField] private float maxLookDownAngle { get; set; }
-    private Vector2 mouseDelta { get; set; }
-    private float verticalRotation { get; set; }
-    private float horizontalRotation { get; set; }
+    private Player player;
+    private Rigidbody rb;
+    private Camera mainCamera;
 
+    [SerializeField] private InputReaderSO m_input;
+
+    private Vector2 moveInput;
+
+    [SerializeField] private float lookSensitivity;
+    [SerializeField] private float maxLookUpAngle;
+    [SerializeField] private float maxLookDownAngle;
+    private Vector2 mouseDelta;
+    private float verticalRotation;
+    private float horizontalRotation;
+
+    public event Action Jumped;
+
+
+    public InputReaderSO input {
+        get => m_input;
+    }
+
+    public void AddForce(Vector3 dir, float power) {
+        rb.AddForce(dir * power, ForceMode.Impulse);
+    }
 
     private void Awake() {
         mainCamera = Camera.main;
@@ -66,11 +80,11 @@ public class PlayerControls : MonoBehaviour {
     }
 
     private void OnJump() {
-        rb.AddForce(Vector3.up * player.jumpPower, ForceMode.Impulse);
-        SoundManagerSO.PlaySoundFxClip(AudioClipsSO.GetClip(AudioFileName.Footsteps_Tile_Jump_Land_03), transform.position, 1f);
+        if (player.isGrounded) {
+            rb.AddForce(Vector3.up * player.jumpPower, ForceMode.Impulse);
+            Jumped?.Invoke();
+        }
     }
 
-    public void AddForce (Vector3 dir, float power) {
-        rb.AddForce(dir * power, ForceMode.Impulse);
-    }
+
 }

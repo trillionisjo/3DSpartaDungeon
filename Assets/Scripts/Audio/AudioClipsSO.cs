@@ -3,17 +3,17 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Objects/Audio Clips", fileName = "AudioClips")]
 public class AudioClipsSO : ScriptableObject {
-    private static AudioClipsSO _instance;
+    private static AudioClipsSO s_instance;
     public static AudioClipsSO instance {
         get {
-            if (_instance == null) {
-                _instance = Resources.Load<AudioClipsSO>("AudioClips");
+            if (s_instance == null) {
+                s_instance = Resources.Load<AudioClipsSO>("AudioClips");
             }
-            return _instance;
+            return s_instance;
         }
     }
 
-    public static AudioClip GetClip(AudioFileName name) {
+    public static AudioClip GetClip(AudioClipName name) {
         return instance.clips[(int)name];
     }
 

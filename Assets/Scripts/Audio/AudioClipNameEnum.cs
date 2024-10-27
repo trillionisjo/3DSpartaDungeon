@@ -1,4 +1,4 @@
-public enum AudioFileName
+public enum AudioClipName
 {
     Footsteps_Tile_Jump_Land_03 = 0,
     Footsteps_Tile_Walk_01 = 1,

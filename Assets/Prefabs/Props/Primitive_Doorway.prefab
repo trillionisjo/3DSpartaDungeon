@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: -8679921383154817045}
   - component: {fileID: -5754084199372789682}
   - component: {fileID: -7511558181221131132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Primitive_Doorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 928374996564983138}
   - component: {fileID: 9013907746150778837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TopCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691945485434793578}
   - component: {fileID: 7458894496927223926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8166395679727848367}
   - component: {fileID: 4199498846202478026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

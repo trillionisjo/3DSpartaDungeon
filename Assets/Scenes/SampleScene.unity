@@ -1481,7 +1481,7 @@ GameObject:
   - component: {fileID: 1912969937}
   - component: {fileID: 1912969936}
   - component: {fileID: 1912969935}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2015,24 +2015,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3768350479031007840, guid: 2ed0a67cb664abe419aa9fc7fed21d78, type: 3}
-      propertyPath: m_jumpPower
-      value: 4
+      propertyPath: jumpThreadhold
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3768350479031007840, guid: 2ed0a67cb664abe419aa9fc7fed21d78, type: 3}
-      propertyPath: m_maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3768350479031007840, guid: 2ed0a67cb664abe419aa9fc7fed21d78, type: 3}
-      propertyPath: m_moveSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3768350479031007840, guid: 2ed0a67cb664abe419aa9fc7fed21d78, type: 3}
-      propertyPath: m_maxStamina
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 3768350479031007840, guid: 2ed0a67cb664abe419aa9fc7fed21d78, type: 3}
-      propertyPath: <health>k__BackingField
-      value: 0
+      propertyPath: jumpCheckDistance
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4669682520446262402, guid: 2ed0a67cb664abe419aa9fc7fed21d78, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2076,10 +2064,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7921346305688555329, guid: 2ed0a67cb664abe419aa9fc7fed21d78, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7921346305688555329, guid: 2ed0a67cb664abe419aa9fc7fed21d78, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2134,6 +2118,14 @@ PrefabInstance:
     - target: {fileID: 1269989459754688363, guid: 5c71e31181c504243b875c31e32b1c2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1319221805012233723, guid: 5c71e31181c504243b875c31e32b1c2e, type: 3}
+      propertyPath: power
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1319221805012233723, guid: 5c71e31181c504243b875c31e32b1c2e, type: 3}
+      propertyPath: direction.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1319221805012233723, guid: 5c71e31181c504243b875c31e32b1c2e, type: 3}
       propertyPath: <power>k__BackingField
