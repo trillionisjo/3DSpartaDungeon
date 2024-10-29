@@ -4,12 +4,11 @@ using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName ="Scriptable Objects/Input Reader", fileName ="InputReader")]
 public class InputReaderSO : ScriptableObject, Controls.IPlayerActions {
-    [SerializeField] private InputActionAsset asset;
-
     public event Action<Vector2> moveEvent;
     public event Action<Vector2> lookEvent;
     public event Action jumpEvent;
     public event Action inventoryEvent;
+    public event Action interactinEvent;
 
     private Controls controls;
 
@@ -45,6 +44,14 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions {
         switch (context.phase) {
         case InputActionPhase.Started:
             inventoryEvent?.Invoke();
+            break;
+        }
+    }
+
+    public void OnInteraction(InputAction.CallbackContext context) {
+        switch (context.phase) {
+        case InputActionPhase.Started:
+            interactinEvent?.Invoke();
             break;
         }
     }

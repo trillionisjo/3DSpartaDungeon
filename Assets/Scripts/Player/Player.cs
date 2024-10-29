@@ -89,9 +89,4 @@ public class Player : MonoBehaviour {
     private void OnDestroy() {
         Global.player = null;
     }
-
-    private void Start() {
-        health = maxHealth;
-        stamina = maxStamina;
-    }
 }

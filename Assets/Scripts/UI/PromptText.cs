@@ -22,6 +22,13 @@ public class PromptText : MonoBehaviour {
     }
 
     private void OnInteractionEvent(GameObject obj) {
-        text.text = (obj == null ? string.Empty : obj.name);
+        if (obj == null) {
+            text.text = string.Empty;
+            return;
+        }
+
+        if (obj.TryGetComponent(out ItemObject item)) {
+            text.text = $"{item.item.data.itemName}\n{item.item.data.description}";
+        }
     }
 }

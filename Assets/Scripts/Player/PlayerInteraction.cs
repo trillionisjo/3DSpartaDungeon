@@ -3,17 +3,38 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour {
     private Camera mainCamera;
+    private InputReaderSO input;
 
     [SerializeField] private float checkDelay = 0.1f;
     [SerializeField] private float lastCheckTime = 0f;
     [SerializeField] private float maxCheckDistance = 0.5f;
 
+    private GameObject currentTarget;
+
     public event Action<GameObject> InteractionEvent;
 
-    private GameObject currentTarget;
 
     private void Awake() {
         mainCamera = Camera.main;
+        input = GetComponent<PlayerControls>().input;
+    }
+
+    private void OnEnable() {
+        input.interactinEvent += OnInteractionEvent;
+    }
+
+    private void OnInteractionEvent() {
+        if (currentTarget == null) {
+            return;
+        }
+
+        if (currentTarget.TryGetComponent(out ItemObject item)) {
+            bool success = Global.uiInventory.AddItem(item.item);
+            if (success) {
+                Destroy(currentTarget);
+                currentTarget = null;
+            }
+        }
     }
 
     private void Update() {
@@ -33,4 +54,6 @@ public class PlayerInteraction : MonoBehaviour {
             }
         }
     }
+
+
 }

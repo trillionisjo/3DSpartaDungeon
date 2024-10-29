@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         HideCursor();
+        Global.uiInventory.gameObject.SetActive(false);
     }
 
     private void OnEnable() {

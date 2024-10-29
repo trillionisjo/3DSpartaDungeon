@@ -12,7 +12,7 @@ public class ItemSlot : MonoBehaviour {
     [SerializeField] private Outline outline;
 
     [Header("Slot Data")]
-    public ItemData item;
+    public Item item;
     public int index;
 
 
@@ -60,6 +60,11 @@ public class ItemSlot : MonoBehaviour {
         if (!IsSlotAvailable()) {
             return;
         }
+        item.Use(Global.player);
+        if (item.stackCount <= 0) {
+            item = null;
+        }
+        UpdateUI();
     }
 
     public void UpdateUI() {
