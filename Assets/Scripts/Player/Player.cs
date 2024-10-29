@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
 
     public int health {
         get => m_health;
-        private set => m_health = Mathf.Clamp(value, 0, maxHealth);
+        set => m_health = Mathf.Clamp(value, 0, maxHealth);
     }
 
     public int maxHealth {
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour {
 
     public int stamina {
         get => m_stamina;
-        private set => m_stamina = Mathf.Clamp(value, 0, maxHealth);
+        set => m_stamina = Mathf.Clamp(value, 0, maxStamina);
     }
 
     public int maxStamina {

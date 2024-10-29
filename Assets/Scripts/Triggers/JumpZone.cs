@@ -6,9 +6,10 @@ public class JumpZone : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            var player = other.gameObject.GetComponent<Player>();
-            var controls = other.gameObject.GetComponent<PlayerControls>();
-            controls.AddForce(direction, power + player.jumpPower);
+            Player player = other.gameObject.GetComponent<Player>();
+            if (player != null) {
+                player.controls?.AddForce(direction, power + player.jumpPower);
+            }
         }
     }
 }

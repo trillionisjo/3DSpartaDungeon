@@ -1,7 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class Global {
-    public static Player player;
+public static class Audio {
     private static AudioClip[] audioClips;
 
     public static void LoadAudioClips() {

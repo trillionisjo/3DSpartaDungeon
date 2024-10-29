@@ -17,6 +17,8 @@ public class PlayerControls : MonoBehaviour {
     private float verticalRotation;
     private float horizontalRotation;
 
+    private bool canLookAround = true;
+
     public event Action Jumped;
 
 
@@ -47,12 +49,15 @@ public class PlayerControls : MonoBehaviour {
         input.moveEvent += OnMove;
         input.lookEvent += OnLook;
         input.jumpEvent += OnJump;
+        input.inventoryEvent += OnInventoryEvent;
     }
+
 
     private void OnDisable() {
         input.moveEvent -= OnMove;
         input.lookEvent -= OnLook;
         input.jumpEvent -= OnJump;
+        input.inventoryEvent -= OnInventoryEvent;
     }
 
     private void OnMove(Vector2 dir) {
@@ -71,6 +76,10 @@ public class PlayerControls : MonoBehaviour {
     }
 
     private void Look() {
+        if (!canLookAround) {
+            return;
+        }
+
         horizontalRotation += mouseDelta.x * lookSensitivity;
         transform.rotation = Quaternion.Euler(0f, horizontalRotation, 0f);
 
@@ -86,5 +95,7 @@ public class PlayerControls : MonoBehaviour {
         }
     }
 
-
+    private void OnInventoryEvent() {
+        canLookAround = !canLookAround;
+    }
 }

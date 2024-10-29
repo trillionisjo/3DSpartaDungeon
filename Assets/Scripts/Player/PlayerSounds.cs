@@ -37,7 +37,7 @@ public class PlayerSounds : MonoBehaviour {
                 if (time - footstepLastTime > footstepDelay) {
                     footstepLastTime = time;
                     int index = Random.Range((int)AudioClipName.Footsteps_Tile_Walk_01, (int)AudioClipName.Footsteps_Tile_Walk_08);
-                    var clip = Global.GetAudioClip((AudioClipName)index);
+                    var clip = Audio.GetAudioClip((AudioClipName)index);
                     SoundManagerSO.PlaySoundFxClip(clip, transform.position, 1f);
                 }
             }
@@ -45,7 +45,7 @@ public class PlayerSounds : MonoBehaviour {
     }
 
     private void OnJumped() {
-        var clip = Global.GetAudioClip(AudioClipName.Footsteps_Tile_Jump_Land_03);
+        var clip = Audio.GetAudioClip(AudioClipName.Footsteps_Tile_Jump_Land_03);
         SoundManagerSO.PlaySoundFxClip(clip, transform.position, 1f);
     }
 }

@@ -9,6 +9,7 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions {
     public event Action<Vector2> moveEvent;
     public event Action<Vector2> lookEvent;
     public event Action jumpEvent;
+    public event Action inventoryEvent;
 
     private Controls controls;
 
@@ -36,6 +37,14 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions {
         switch (context.phase) {
         case InputActionPhase.Started:
             jumpEvent?.Invoke();
+            break;
+        }
+    }
+
+    public void OnInventory(InputAction.CallbackContext context) {
+        switch (context.phase) {
+        case InputActionPhase.Started:
+            inventoryEvent?.Invoke();
             break;
         }
     }

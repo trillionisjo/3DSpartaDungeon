@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour {
     private Camera mainCamera;
 
-    [SerializeField] private float checkDelay = 0.05f;
+    [SerializeField] private float checkDelay = 0.1f;
     [SerializeField] private float lastCheckTime = 0f;
     [SerializeField] private float maxCheckDistance = 0.5f;
 
